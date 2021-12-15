@@ -1,1 +1,1 @@
-export type ActionStatus = 'PENDING' | 'REJECTED' | 'FULFILLED' | 'IDLE'
+export type ActionStatus = 'PENDING' | 'REJECTED' | 'FULFILLED' | 'IDLE';
