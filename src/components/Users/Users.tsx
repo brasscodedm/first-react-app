@@ -1,76 +1,69 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  deleteUser,
-  getUserDetails,
-  getUsers,
-  postUser,
-  resetUsers,
-} from '../../store/users/actions';
-import { NewUser } from '../../interfaces/User';
-import {
-  selectIsLoadingUsers,
-  selectIsRejectedUsers,
-  selectUsers,
-} from '../../store/users/selectors';
-import styles from './Users.module.scss';
+import React, {FunctionComponent, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {deleteUser, getUserDetails, getUsers, postUser, resetUsers} from "../../store/users/actions";
+import {NewUser} from "../../interfaces/User";
+import {selectIsLoadingUsers, selectIsRejectedUsers, selectUsers} from "../../store/users/selectors";
 
 const Users: FunctionComponent = () => {
-  const users = useSelector(selectUsers);
-  const isLoading = useSelector(selectIsLoadingUsers);
-  const isRejectedUsers = useSelector(selectIsRejectedUsers);
-  const dispatch = useDispatch();
+	const users = useSelector(selectUsers);
+	const isLoading = useSelector(selectIsLoadingUsers);
+	const isRejectedUsers = useSelector(selectIsRejectedUsers);
+	const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getUsers());
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(getUsers());
+	}, [dispatch])
 
-  if (isLoading) {
-    return <div>IS LOADING...</div>;
-  }
 
-  if (isRejectedUsers) {
-    return <div>IS REJECTED...</div>;
-  }
+	if (isLoading) {
+		return <div>IS LOADING...</div>
+	}
 
-  const onResetUsers = () => {
-    dispatch(resetUsers());
-  };
+	if (isRejectedUsers) {
+		return <div>IS REJECTED...</div>
+	}
 
-  const onGetUserDetails = (id: string) => {
-    dispatch(getUserDetails(id));
-  };
+	const onResetUsers = () => {
+		dispatch(resetUsers());
+	}
 
-  const onDeleteUser = (id: string) => {
-    dispatch(deleteUser(id));
-  };
+	const onGetUserDetails = (id: string) =>  {
+		dispatch(getUserDetails(id));
+	}
 
-  const onAddUser = () => {
-    const newUser: NewUser = {
-      name: 'Dominik',
-      email: 'asadasda3@asz.com',
-      gender: 'male',
-      status: 'active',
-    };
+	const onDeleteUser = (id: string) => {
+		dispatch(deleteUser(id));
+	}
 
-    dispatch(postUser(newUser));
-  };
+	const onAddUser = () => {
+		const newUser: NewUser = {
+			name: 'Dominik',
+			email: 'asadasda3@asz.com',
+			gender: 'male',
+			status: 'active'
+		}
 
-  return (
-    <div className={styles.root}>
-      <button onClick={onResetUsers}>RESET USERS</button>
-      <button onClick={onAddUser}>ADD NEW USER</button>
+		dispatch(postUser(newUser))
+	}
 
-      {users.map((user, key) => (
-        <div onClick={() => onGetUserDetails(user.id)} key={key}>
-          Id: {user.id}, Name: {user.name}
-          <span style={{ color: 'red', marginLeft: '5px' }} onClick={() => onDeleteUser(user.id)}>
-            USUN
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-};
+	return (
+		<div>
+			<button onClick={onResetUsers}>RESET USERS</button>
+			<button onClick={onAddUser}>ADD NEW USER</button>
 
-export default Users;
+			{users.map((user, key) => (
+				<div
+					onClick={() => onGetUserDetails(user.id)}
+					key={key}
+				>
+					Id: {user.id}, Name: {user.name}
+					<span style={{color: "red", marginLeft: '5px' }} onClick={() => onDeleteUser(user.id)}>
+						USUN
+					</span>
+				</div>
+			))}
+		</div>
+	)
+}
+
+export default Users

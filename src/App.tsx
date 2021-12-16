@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './App.module.scss';
-import Users from './components/Users/Users';
+import './App.css';
+import Users from "./components/Users/Users";
 
 function App() {
   return (
-    <div className={styles.app}>
-      <header className={styles.header}>
+    <div className="App">
+      <header className="App-header">
         <h1>My first React/Redux App</h1>
         <Users />
       </header>
