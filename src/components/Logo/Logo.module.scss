@@ -1,0 +1,10 @@
+@import 'src/styles/variables';
+
+.logo {
+	width: 150px;
+	padding: $margin-s;
+
+	img {
+		max-width: 100%;
+	}
+}

@@ -1,3 +1,24 @@
-.root {
-  background-color: black;
+@import 'src/styles/variables';
+
+.listHeader,
+.listElement {
+	display: grid;
+	grid-template-columns: 50px 2fr 1fr 1fr 80px;
+	padding: $margin-l;
+}
+
+.listHeader {
+	background-color: $primary-color;
+	font-weight: 600;
+	border-radius: $border-radius $border-radius 0 0;
+}
+
+.listContent {
+	background-color: $content-bg-color;
+	border-radius: 0 0 $border-radius $border-radius;
+}
+
+.removeUser {
+	font-weight: 600;
+	cursor: pointer;
 }

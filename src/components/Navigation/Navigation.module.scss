@@ -1,0 +1,12 @@
+@import 'src/styles/variables';
+
+.link {
+	color: $text-color;
+	text-decoration: none;
+	padding: $margin-xl;
+	margin-left: $margin-xl;
+	text-transform: uppercase;
+	font-weight: 600;
+	background-color: $primary-color;
+	border-radius: $border-radius;
+}
