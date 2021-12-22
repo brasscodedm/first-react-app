@@ -1,0 +1,16 @@
+@import 'src/styles/variables';
+
+.root {
+	background-color: $body-bg-color;
+	min-height: 100vh;
+}
+
+.container {
+	width: 1020px;
+	max-width: 100%;
+	margin: 0 auto;
+	color: $text-color;
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}

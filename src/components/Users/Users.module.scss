@@ -1,3 +1,44 @@
-.root {
-  background-color: black;
+@import 'src/styles/variables';
+
+.center {
+	text-align: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: right;
+	margin-bottom: 20px;
+}
+
+.primaryButton {
+	color: $text-color;
+	background-color: $primary-color;
+	padding: 20px;
+	margin-left: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+.listHeader,
+.listElement {
+	display: grid;
+	grid-template-columns: 50px 2fr 1fr 1fr 80px;
+	padding: 12px;
+}
+
+.listContent {
+	background-color: $content-bg-color;
+	border-radius: 0 0 5px 5px;
+}
+
+.listHeader {
+	font-weight: 600;
+	background-color: $primary-color;
+	border-radius: 5px 5px 0 0;
+	padding: 16px;
+}
+
+.removeUser {
+	cursor: pointer;
+	font-weight: 600;
 }

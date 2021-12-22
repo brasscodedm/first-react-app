@@ -1,16 +1,16 @@
 import React from 'react';
-import './App.css';
 import Users from './components/Users/Users';
+import styles from './App.module.scss';
+import { Topbar } from './components/Topbar/Topbar';
 
 const App = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1>My first React/Redux App</h1>
+		<div className={styles.root}>
+			<div className={styles.container}>
+				<Topbar />
 				<Users />
-			</header>
+			</div>
 		</div>
 	);
 };
-
 export default App;
