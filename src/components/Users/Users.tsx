@@ -7,6 +7,7 @@ import {
 	selectUsers,
 } from '../../store/users/selectors';
 import styles from './Users.module.scss';
+import { Outlet } from 'react-router-dom';
 
 const Users: FunctionComponent = () => {
 	const users = useSelector(selectUsers);
@@ -19,7 +20,12 @@ const Users: FunctionComponent = () => {
 	}, [dispatch]);
 
 	if (isLoading) {
-		return <div>IS LOADING...</div>;
+		return (
+			<>
+				<Outlet />
+				<div>IS LOADING...</div>
+			</>
+		);
 	}
 
 	if (isRejectedUsers) {
@@ -36,6 +42,7 @@ const Users: FunctionComponent = () => {
 
 	return (
 		<>
+			<Outlet />
 			<div className={styles.listHeader}>
 				<div>LP.</div>
 				<div>Name</div>
