@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.scss';
-import { Topbar } from './components/Topbar/Topbar';
+import { Topbar } from 'components/Topbar/Topbar';
 import { Outlet } from 'react-router-dom';
 
 const App = () => {

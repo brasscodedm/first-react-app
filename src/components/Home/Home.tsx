@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Home.module.scss';
+import logo from 'assets/brass-transparent.png';
 
 export const Home = () => (
 	<div className={styles.root}>
@@ -11,6 +12,8 @@ export const Home = () => (
 			</p>
 			<p>If you need contact with me or get the repository go to the contact page.</p>
 			<p>Have fun!</p>
+
+			<img className={styles.logo} src={logo} alt={'Brasscode'} />
 		</div>
 	</div>
 );

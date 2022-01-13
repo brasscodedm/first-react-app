@@ -7,7 +7,12 @@ export const AddNewUser = () => {
 	return (
 		<>
 			<div className={styles.bgMark} onClick={() => navigate('/users')} />
-			<div className={styles.wrapper}>Add new user form!</div>
+			<div className={styles.wrapper}>
+				<div className={styles.closeBtn} onClick={() => navigate(-1)}>
+					BACK TO PREV ROUTE
+				</div>
+				<h2>Add new user form:</h2>
+			</div>
 		</>
 	);
 };

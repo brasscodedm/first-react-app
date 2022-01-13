@@ -1,0 +1,31 @@
+@import 'src/styles/variables';
+
+.root {
+	text-align: center;
+}
+
+.header {
+	font-size: 64px;
+}
+
+.linksList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.externalLink {
+	display: block;
+	width: 33%;
+	margin-bottom: $margin-xl;
+
+	.linkImg {
+		max-width: 60%;
+	}
+
+	.linkName {
+		padding: $margin-s;
+		font-weight: 600;
+		color: $text-color;
+	}
+}
