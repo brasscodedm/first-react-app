@@ -3,11 +3,11 @@ export interface ListResponse<T> {
 		data: T[];
 		meta: {
 			pagination: {
-				limit: number
-				page: number
-				pages: number
-				total: number
-			}
-		}
-	}
+				limit: number;
+				page: number;
+				pages: number;
+				total: number;
+			};
+		};
+	};
 }
