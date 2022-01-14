@@ -4,16 +4,16 @@ import { getUserDetails } from 'store/users/actions';
 import { useDispatch } from 'react-redux';
 
 export const UserDetails = () => {
-	const { userId } = useParams();
-	const dispatch = useDispatch();
+  const { userId } = useParams();
+  const dispatch = useDispatch();
 
-	const onGetUserDetails = (id: string) => {
-		dispatch(getUserDetails(id));
-	};
+  const onGetUserDetails = (id: string) => {
+    dispatch(getUserDetails(id));
+  };
 
-	useEffect(() => {
-		userId && onGetUserDetails(userId);
-	}, [userId, dispatch]);
+  useEffect(() => {
+    userId && onGetUserDetails(userId);
+  }, [userId, dispatch]);
 
-	return <div>it is a page for user {userId}</div>;
+  return <div>it is a page for user {userId}</div>;
 };

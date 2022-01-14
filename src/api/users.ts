@@ -8,6 +8,6 @@ export const getUsersRequest = (): Promise<ListResponse<User>> => Axios.get(`use
 export const postUserRequest = (newUser: NewUser) => Axios.post(`users`, newUser);
 
 export const getUserDetailsRequest = (id: string): Promise<SingleResponse<User>> =>
-	Axios.get(`users/${id}`);
+  Axios.get(`users/${id}`);
 
 export const deleteUserRequest = (id: string): Promise<unknown> => Axios.delete(`users/${id}`);
