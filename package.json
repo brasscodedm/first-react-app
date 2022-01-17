@@ -4,33 +4,26 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^12.20.37",
-    "@types/react": "^17.0.34",
-    "@types/react-dom": "^17.0.11",
     "axios": "^0.24.0",
-    "qs": "^6.10.1",
-    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
+    "react": "^17.0.2",
     "redux": "^4.1.2",
-    "typescript": "^4.4.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,json,md,mdx}'"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write eslint --no-error-on-unmatched-pattern"
+      "prettier --write",
+      "eslint"
     ]
   },
   "eslintConfig": {
@@ -52,14 +45,22 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.20.37",
     "@types/qs": "^6.9.7",
+    "@types/react-dom": "^17.0.11",
+    "@types/react": "^17.0.34",
     "css-loader": "^6.5.1",
-    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.1",
     "redux-devtools": "^3.7.0",
-    "sass": "^1.45.0"
+    "sass": "^1.45.0",
+    "typescript": "^4.4.4"
   }
 }
