@@ -15,5 +15,5 @@ export const UserDetails = () => {
 		userId && onGetUserDetails(userId);
 	}, [userId, dispatch]);
 
-	return <div>it is a page for user {userId}</div>;
+	return <div>It is a page for user {userId}</div>;
 };

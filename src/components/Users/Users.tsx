@@ -65,7 +65,7 @@ const Users: FunctionComponent = () => {
 						<div
 							className={styles.userName}
 							onClick={() => {
-								navigate(`${user.id}`);
+								navigate(`${user.id}`, { state: { name: user.name } });
 							}}
 						>
 							Name: {user.name}
