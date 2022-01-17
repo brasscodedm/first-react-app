@@ -12,9 +12,9 @@ export const Routing = () => {
 	return (
 		<Routes>
 			<Route path={'/'} element={<App />}>
-				<Route path={'*'} element={<Page404 />} />
-				<Route path={'contact'} element={<Contact />} />
-				<Route path="/users" element={<Users />}>
+				<Route path="*" element={<Page404 />} />
+				<Route path="contact" element={<Contact />} />
+				<Route path="users" element={<Users />}>
 					<Route path="new" element={<AddNewUser />} />
 				</Route>
 				<Route path="users/:userId" element={<UserDetails />} />
