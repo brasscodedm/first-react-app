@@ -1,7 +1,7 @@
-import { Logo } from '../Logo/Logo';
 import React from 'react';
-import { Navigation } from '../Navigation/Navigation';
 import styles from './Topbar.module.scss';
+import { Navigation } from 'components/Navigation/Navigation';
+import { Logo } from 'components/Logo/Logo';
 
 export const Topbar = () => {
 	return (

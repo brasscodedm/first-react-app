@@ -1,18 +1,19 @@
 import React from 'react';
 import styles from './Navigation.module.scss';
+import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
 	return (
 		<nav>
-			<a className={styles.link} href={'/users'}>
+			<Link className={styles.link} to={'/users'}>
 				Users list
-			</a>
-			<a className={styles.link} href={'/new-user'}>
+			</Link>
+			<Link className={styles.link} to={'/users/new'}>
 				Add new user
-			</a>
-			<a className={styles.link} href={'/contact'}>
+			</Link>
+			<Link className={styles.link} to={'/contact'}>
 				Contact
-			</a>
+			</Link>
 		</nav>
 	);
 };

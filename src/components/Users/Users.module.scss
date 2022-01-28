@@ -18,7 +18,14 @@
 	border-radius: 0 0 $border-radius $border-radius;
 }
 
+.userName,
 .removeUser {
 	font-weight: 600;
 	cursor: pointer;
+}
+
+.statusInfo {
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
 }

@@ -1,41 +1,56 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserDetails, getUsers } from '../../store/users/actions';
+import { deleteUser, getUsers, resetUsers } from 'store/users/actions';
+
+import styles from './Users.module.scss';
+import { Outlet, useNavigate } from 'react-router-dom';
 import {
+	selectIsIdleUsers,
 	selectIsLoadingUsers,
 	selectIsRejectedUsers,
 	selectUsers,
-} from '../../store/users/selectors';
-import styles from './Users.module.scss';
+} from 'store/users/selectors';
 
 const Users: FunctionComponent = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const users = useSelector(selectUsers);
 	const isLoading = useSelector(selectIsLoadingUsers);
 	const isRejectedUsers = useSelector(selectIsRejectedUsers);
-	const dispatch = useDispatch();
+	const isIdleUsers = useSelector(selectIsIdleUsers);
 
 	useEffect(() => {
 		dispatch(getUsers());
+
+		return () => {
+			dispatch(resetUsers());
+		};
 	}, [dispatch]);
 
 	if (isLoading) {
-		return <div>IS LOADING...</div>;
+		return (
+			<>
+				<Outlet />
+				<div className={styles.statusInfo}>IS LOADING...</div>
+			</>
+		);
 	}
 
 	if (isRejectedUsers) {
-		return <div>IS REJECTED...</div>;
+		return <div className={styles.statusInfo}>IS REJECTED...</div>;
 	}
 
-	const onGetUserDetails = (id: string) => {
-		dispatch(getUserDetails(id));
-	};
+	if (isIdleUsers) {
+		return <></>;
+	}
 
 	const onDeleteUser = (id: string) => {
-		dispatch(id);
+		dispatch(deleteUser(id));
 	};
 
 	return (
 		<>
+			<Outlet />
 			<div className={styles.listHeader}>
 				<div>LP.</div>
 				<div>Name</div>
@@ -47,7 +62,14 @@ const Users: FunctionComponent = () => {
 				{users.map((user, key) => (
 					<div key={key} className={styles.listElement}>
 						<div>{key + 1}</div>
-						<div onClick={() => onGetUserDetails(user.id)}>Name: {user.name}</div>
+						<div
+							className={styles.userName}
+							onClick={() => {
+								navigate(`${user.id}`, { state: { name: user.name } });
+							}}
+						>
+							Name: {user.name}
+						</div>
 						<div>{user.gender}</div>
 						<div>{user.status}</div>
 						<div>
